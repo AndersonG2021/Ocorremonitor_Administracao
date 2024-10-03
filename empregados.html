@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="empregado.js"></script>
+    <style>
+        body {
+            background-color: #e9ecef;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar .nav-link {
+            color: #fff !important;
+        }
+        .titulo {
+            margin-top: 40px;
+            color: #343a40;
+        }
+        .container-principal {
+            margin-top: 40px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-criar {
+            background-color: black;
+            color: white;
+        }
+        .alerta-feedback {
+            display: none;
+        }
+        .d-flex {
+            display: flex;
+            align-items: flex-start; /* Alinha os itens ao topo */
+            justify-content: flex-start; /* Alinha os itens à esquerda */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarCollapse" aria-controls="navBarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navBarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="empregados.html">Empregados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="setores.html">Setores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <!-- Mensagem de Feedback -->
+     <div id="mensagemFeedback" class="alert alert-success alerta-feedback text-center" role="alert">
+        <!-- Mensagem será preenchida pelo JavaScript -->
+    </div>
+
+    <!-- Container principal -->
+    <div class="container container-principal text-left">
+        <div class="d-flex flex-column">
+            <h2 class="titulo">Lista de Empregados</h2>
+            <button class="btn btn-criar mb-3" id="botaoCriarColaborador">Cadastrar Empregado</button>
+        </div>
+        <div class="tabela-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Matrícula</th>
+                        <th>Setor Lotado</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabelaColaboradores">
+                    <!-- Linhas serão preenchidas pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para Criar/Atualizar Colaborador -->
+    <div class="modal fade" id="modalColaborador" tabindex="-1" aria-labelledby="modalColaboradorLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalColaboradorLabel">Criar Colaborador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formColaborador">
+                        <input type="hidden" id="idColaborador">
+                        <input type="text" id="nomeColaborador" class="form-control" placeholder="Nome" required>
+                        <input type="email" id="emailColaborador" class="form-control" placeholder="Email" required>
+                        <input type="text" id="matriculaColaborador" class="form-control" placeholder="Matrícula" required>
+                        <select id="departamentoColaborador" class="form-control" required>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-criar" id="botaoSalvarColaborador">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    
+</body>
+
+</html>
